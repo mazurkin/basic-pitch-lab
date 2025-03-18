@@ -49,12 +49,3 @@ env-shell:
 .PHONY: env-info
 env-info:
 	@conda run --no-capture-output --live-stream --name $(CONDA_ENV_NAME) conda info
-
-# -----------------------------------------------------------------------------
-# service
-# -----------------------------------------------------------------------------
-
-.PHONY: list-gpu
-list-gpu:
-	@conda run --no-capture-output --live-stream --name $(CONDA_ENV_NAME) \
-		python3 -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
